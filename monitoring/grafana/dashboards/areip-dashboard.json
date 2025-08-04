@@ -1,0 +1,121 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "AREIP Dashboard",
+    "tags": ["areip", "real-estate", "agents"],
+    "timezone": "browser",
+    "refresh": "30s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Agent Execution Status",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "areip_agent_executions_total",
+            "legendFormat": "{{agent_name}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        }
+      },
+      {
+        "id": 2,
+        "title": "Agent Success Rate",
+        "type": "gauge",
+        "targets": [
+          {
+            "expr": "rate(areip_agent_executions_success_total[5m]) / rate(areip_agent_executions_total[5m])",
+            "legendFormat": "{{agent_name}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        }
+      },
+      {
+        "id": 3,
+        "title": "Workflow Execution Time",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "areip_workflow_duration_seconds",
+            "legendFormat": "{{workflow_type}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 8
+        }
+      },
+      {
+        "id": 4,
+        "title": "Data Ingestion Metrics",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "areip_data_ingestion_records_total",
+            "legendFormat": "{{source}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        }
+      },
+      {
+        "id": 5,
+        "title": "API Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(areip_http_requests_total[5m])",
+            "legendFormat": "{{method}} {{endpoint}}"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 16
+        }
+      },
+      {
+        "id": 6,
+        "title": "Database Connection Pool",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "areip_db_connections_active",
+            "legendFormat": "Active Connections"
+          },
+          {
+            "expr": "areip_db_connections_idle",
+            "legendFormat": "Idle Connections"
+          }
+        ],
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        }
+      }
+    ]
+  }
+}
