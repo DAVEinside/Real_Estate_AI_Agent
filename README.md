@@ -1,16 +1,9 @@
 # 🏠 Autonomous Real Estate Intelligence Platform (AREIP)
 
-> **Cherre AI Research Associate Position Showcase**  
-> A production-ready, automation-native multi-agent system demonstrating advanced AI capabilities for real estate market intelligence.
-
 [![CI/CD](https://github.com/areip/areip/workflows/CI/badge.svg)](https://github.com/areip/areip/actions)
 [![Coverage](https://codecov.io/gh/areip/areip/branch/main/graph/badge.svg)](https://codecov.io/gh/areip/areip)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## 🎯 Why This Project Perfectly Aligns with Cherre's Requirements
-
-This implementation showcases every requirement from the Cherre AI Research Associate job description:
 
 ### ✅ **Automation-Native & Agent-Oriented**
 - **LangGraph** orchestration with complex state machines and conditional workflows
@@ -43,7 +36,7 @@ This implementation showcases every requirement from the Cherre AI Research Asso
 
 ```bash
 # 1. Clone and setup (5 minutes)
-git clone https://github.com/your-username/areip
+git clone https://github.com/DAVEinside/areip
 cd areip
 pip install -r requirements.txt
 cp .env.example .env
@@ -336,9 +329,3 @@ This implementation provides a solid foundation for:
 ## 📄 **License & Contributing**
 
 MIT License - See [LICENSE](./LICENSE) for details.
-
-For questions about this implementation or the Cherre position, please reach out!
-
----
-
-**This project demonstrates exactly the kind of innovative, production-ready AI system that would excel in Cherre's real estate technology environment. Every component showcases the skills and experience outlined in the job description.**
