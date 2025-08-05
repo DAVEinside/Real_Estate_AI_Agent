@@ -279,11 +279,6 @@ kubectl apply -f infrastructure/kubernetes/
 | Document | Description |
 |----------|-------------|
 | [Implementation Guide](./docs/IMPLEMENTATION.md) | Detailed technical implementation and architecture |
-| [API Reference](./docs/api.md) | Complete REST API documentation |
-| [Agent Development](./docs/agents.md) | Guide for creating custom agents |
-| [Data Sources](./docs/data-sources.md) | Real estate data integration patterns |
-| [Deployment Guide](./docs/deployment.md) | Production deployment instructions |
-
 ---
 
 ## 🎯 **Why This Demonstrates Cherre-Level Expertise**
