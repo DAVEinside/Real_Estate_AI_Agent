@@ -1,0 +1,43 @@
+version: '3.8'
+
+# Development overrides for docker-compose.yml
+services:
+  areip-api:
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+    volumes:
+      - .:/app
+    command: uvicorn areip.api.main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
+
+  areip-worker:
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+    volumes:
+      - .:/app
+
+  areip-scheduler:
+    environment:
+      - DEBUG=true
+      - LOG_LEVEL=DEBUG
+    volumes:
+      - .:/app
+
+  # Jupyter notebook for development
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: areip_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/work
+      - jupyter_data:/home/jovyan/.jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=areip_dev_token
+    networks:
+      - areip-network
+
+volumes:
+  jupyter_data:

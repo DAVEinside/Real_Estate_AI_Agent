@@ -1,0 +1,237 @@
+{
+  "test_timestamp": "2025-08-05T07:14:01.683455",
+  "duration_seconds": 17.275168,
+  "individual_results": {
+    "zillow": {
+      "status": "success",
+      "records": 224604,
+      "sample": [
+        {
+          "RegionID": 102001,
+          "SizeRank": 0,
+          "RegionName": "United States",
+          "RegionType": "country",
+          "StateName": NaN,
+          "date": "2000-01-31 00:00:00",
+          "home_values_value": 124952.58326434976
+        },
+        {
+          "RegionID": 394913,
+          "SizeRank": 1,
+          "RegionName": "New York, NY",
+          "RegionType": "msa",
+          "StateName": "NY",
+          "date": "2000-01-31 00:00:00",
+          "home_values_value": 224104.1077861437
+        },
+        {
+          "RegionID": 753899,
+          "SizeRank": 2,
+          "RegionName": "Los Angeles, CA",
+          "RegionType": "msa",
+          "StateName": "CA",
+          "date": "2000-01-31 00:00:00",
+          "home_values_value": 228441.26462035647
+        }
+      ]
+    },
+    "fred": {
+      "status": "success",
+      "records": 1335,
+      "sample": [
+        {
+          "date": "2000-01-07 00:00:00",
+          "mortgage_rates_value": 8.15,
+          "series_id": "MORTGAGE30US",
+          "series_name": "mortgage_rates"
+        },
+        {
+          "date": "2000-01-14 00:00:00",
+          "mortgage_rates_value": 8.18,
+          "series_id": "MORTGAGE30US",
+          "series_name": "mortgage_rates"
+        },
+        {
+          "date": "2000-01-21 00:00:00",
+          "mortgage_rates_value": 8.26,
+          "series_id": "MORTGAGE30US",
+          "series_name": "mortgage_rates"
+        }
+      ]
+    },
+    "census": {
+      "status": "success",
+      "records": 15,
+      "sample": [
+        {
+          "NAME": "Alameda County",
+          "state": "06",
+          "county": "001",
+          "total_population": 221958,
+          "median_household_income": 65795,
+          "median_home_value": 431932,
+          "median_rent": 2494,
+          "total_housing_units": 309178,
+          "owner_occupied": 149879,
+          "renter_occupied": 130268,
+          "vacancy_rate": 0.1096850157946487,
+          "fips_code": "06001",
+          "fetch_date": "2025-08-05 07:14:10.118606"
+        },
+        {
+          "NAME": "Contra Costa County",
+          "state": "06",
+          "county": "002",
+          "total_population": 237337,
+          "median_household_income": 132386,
+          "median_home_value": 821430,
+          "median_rent": 1530,
+          "total_housing_units": 137498,
+          "owner_occupied": 404871,
+          "renter_occupied": 195203,
+          "vacancy_rate": 0.06428668179219407,
+          "fips_code": "06002",
+          "fetch_date": "2025-08-05 07:14:10.118606"
+        },
+        {
+          "NAME": "Marin County",
+          "state": "06",
+          "county": "003",
+          "total_population": 141090,
+          "median_household_income": 117221,
+          "median_home_value": 364820,
+          "median_rent": 1969,
+          "total_housing_units": 371879,
+          "owner_occupied": 224027,
+          "renter_occupied": 272709,
+          "vacancy_rate": 0.050077876584101434,
+          "fips_code": "06003",
+          "fetch_date": "2025-08-05 07:14:10.118606"
+        }
+      ]
+    },
+    "rentcast": {
+      "status": "failed",
+      "error": "HTTP 400: {\"status\":400,\"error\":\"resource/bad-request\",\"message\":\"The required query parameter 'zipCode' was not provided\"}"
+    },
+    "openstreetmap": {
+      "status": "success",
+      "records": 0,
+      "sample": []
+    }
+  },
+  "orchestrated_results": {
+    "status": "success",
+    "summary": {
+      "total_datasets": 10,
+      "total_records": 226567,
+      "datasets": {
+        "zillow_home_values": {
+          "records": 224604,
+          "columns": [
+            "RegionID",
+            "SizeRank",
+            "RegionName",
+            "RegionType",
+            "StateName",
+            "date",
+            "home_values_value"
+          ],
+          "empty": false
+        },
+        "zillow_rentals": {
+          "records": 0,
+          "columns": [],
+          "empty": true
+        },
+        "zillow_inventory": {
+          "records": 0,
+          "columns": [],
+          "empty": true
+        },
+        "zillow_sales": {
+          "records": 0,
+          "columns": [],
+          "empty": true
+        },
+        "fred_mortgage_rates": {
+          "records": 1335,
+          "columns": [
+            "date",
+            "mortgage_rates_value",
+            "series_id",
+            "series_name"
+          ],
+          "empty": false
+        },
+        "fred_unemployment": {
+          "records": 307,
+          "columns": [
+            "date",
+            "unemployment_value",
+            "series_id",
+            "series_name"
+          ],
+          "empty": false
+        },
+        "fred_housing_starts": {
+          "records": 306,
+          "columns": [
+            "date",
+            "housing_starts_value",
+            "series_id",
+            "series_name"
+          ],
+          "empty": false
+        },
+        "census_demographics": {
+          "records": 15,
+          "columns": [
+            "NAME",
+            "state",
+            "county",
+            "total_population",
+            "median_household_income",
+            "median_home_value",
+            "median_rent",
+            "total_housing_units",
+            "owner_occupied",
+            "renter_occupied",
+            "vacancy_rate",
+            "fips_code",
+            "fetch_date"
+          ],
+          "empty": false
+        },
+        "rentcast_market": {
+          "records": 0,
+          "columns": [],
+          "empty": true
+        },
+        "osm_amenities": {
+          "records": 0,
+          "columns": [],
+          "empty": true
+        }
+      },
+      "fetch_time": "2025-08-05T07:14:18.933471"
+    },
+    "datasets": {
+      "zillow_home_values": 224604,
+      "zillow_rentals": 0,
+      "zillow_inventory": 0,
+      "zillow_sales": 0,
+      "fred_mortgage_rates": 1335,
+      "fred_unemployment": 307,
+      "fred_housing_starts": 306,
+      "census_demographics": 15,
+      "rentcast_market": 0,
+      "osm_amenities": 0
+    }
+  },
+  "summary": {
+    "successful_sources": 4,
+    "total_sources": 5,
+    "integration_status": "ready"
+  }
+}

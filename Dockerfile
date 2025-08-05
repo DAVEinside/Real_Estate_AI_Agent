@@ -3,9 +3,7 @@ FROM python:3.11-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    POETRY_NO_INTERACTION=1 \
-    POETRY_VENV_IN_PROJECT=1 \
-    POETRY_CACHE_DIR=/tmp/poetry_cache
+    DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
@@ -15,19 +13,29 @@ RUN apt-get update && apt-get install -y \
     g++ \
     curl \
     git \
+    build-essential \
+    libpq-dev \
+    libgdal-dev \
+    gdal-bin \
+    libspatialindex-dev \
+    libgeos-dev \
+    libproj-dev \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Poetry
-RUN pip install poetry==1.7.1
-
-# Copy dependency files
-COPY pyproject.toml poetry.lock* ./
-
-# Install Python dependencies
-RUN poetry install --no-dev && rm -rf $POETRY_CACHE_DIR
+# Copy requirements and install Python dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY . .
+
+# Install the package in development mode
+RUN pip install -e .
+
+# Create necessary directories
+RUN mkdir -p /app/data /app/logs /app/models
 
 # Create non-root user
 RUN useradd --create-home --shell /bin/bash areip
@@ -42,4 +50,4 @@ HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:8000/health || exit 1
 
 # Run the application
-CMD ["poetry", "run", "uvicorn", "areip.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "areip.api.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

@@ -2,7 +2,9 @@
 
 import os
 from typing import Optional
-from pydantic import BaseSettings, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
+from langfuse import Langfuse
 
 
 class Settings(BaseSettings):
@@ -75,3 +77,12 @@ class Settings(BaseSettings):
 
 # Global settings instance
 settings = Settings()
+
+# Initialize LangFuse client with v3 SDK
+langfuse_client = None
+if settings.langfuse_secret_key and settings.langfuse_public_key:
+    langfuse_client = Langfuse(
+        secret_key=settings.langfuse_secret_key,
+        public_key=settings.langfuse_public_key,
+        host=settings.langfuse_host
+    )

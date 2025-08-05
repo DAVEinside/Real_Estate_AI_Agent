@@ -8,10 +8,9 @@ from typing import Dict, List, Optional, Any, Union
 from dataclasses import dataclass, field
 from enum import Enum
 
-from langfuse import Langfuse
-from langfuse.decorators import observe
+from langfuse import Langfuse, observe
 
-from ..config import settings
+from ..config import settings, langfuse_client
 from ..utils.database import DatabaseManager
 
 logger = logging.getLogger(__name__)
@@ -71,12 +70,12 @@ class BaseAgent(ABC):
         self,
         agent_name: str,
         db_manager: DatabaseManager,
-        langfuse_client: Optional[Langfuse] = None
+        langfuse_client_override: Optional[Langfuse] = None
     ):
         self.agent_name = agent_name
         self.agent_id = f"{agent_name}_{uuid.uuid4().hex[:8]}"
         self.db_manager = db_manager
-        self.langfuse = langfuse_client
+        self.langfuse = langfuse_client_override or langfuse_client
         self.status = AgentStatus.IDLE
         self.memory = AgentMemory(agent_id=self.agent_id)
         self.current_task: Optional[AgentTask] = None

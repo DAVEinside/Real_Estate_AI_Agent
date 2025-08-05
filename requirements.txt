@@ -1,93 +1,93 @@
 # Core Framework Dependencies
-langchain==0.1.20
-langgraph==0.0.55
-crewai==0.28.8
-langfuse==2.20.0
+langchain
+langgraph
+crewai
+langfuse>=2.50.0
 
 # LLM and AI
-openai==1.12.0
-anthropic==0.18.1
-google-cloud-aiplatform==1.42.1
-transformers==4.38.2
-sentence-transformers==2.2.2
-torch==2.2.1
-tiktoken==0.6.0
+openai
+anthropic
+google-cloud-aiplatform
+transformers
+sentence-transformers
+torch
+tiktoken
 
 # Data Processing and ML
-pandas==2.2.1
-numpy==1.26.4
-scikit-learn==1.4.1
-scipy==1.12.0
-xgboost==2.0.3
-lightgbm==4.3.0
+pandas
+numpy
+scikit-learn
+scipy
+xgboost
+lightgbm
 
 # Graph and Vector Databases
-neo4j==5.17.0
-pinecone-client==3.0.3
-chromadb==0.4.24
-faiss-cpu==1.7.4
+neo4j
+pinecone-client
+chromadb
+faiss-cpu
 
 # Web APIs and Data Sources
-requests==2.31.0
-httpx==0.27.0
-aiohttp==3.9.3
-beautifulsoup4==4.12.3
-scrapy==2.11.1
+requests
+httpx
+aiohttp
+beautifulsoup4
+scrapy
 
 # Geographic and Mapping
-geopandas==0.14.3
-folium==0.16.0
-osmnx==1.8.1
-geopy==2.4.1
-shapely==2.0.3
+geopandas
+folium
+osmnx
+geopy
+shapely
 
 # Time Series and Statistics
-statsmodels==0.14.1
-prophet==1.1.5
-arch==6.2.0
-pymc==5.10.4
+statsmodels
+prophet
+arch
+pymc
 
 # Cloud and Infrastructure
-google-cloud-bigquery==3.17.2
-google-cloud-storage==2.13.0
-redis==5.0.3
-psycopg2-binary==2.9.9
-sqlalchemy==2.0.27
+google-cloud-bigquery
+google-cloud-storage
+redis
+psycopg2-binary
+sqlalchemy
 
 # API Framework
-fastapi==0.109.2
-uvicorn==0.27.1
-pydantic==2.6.3
-celery==5.3.6
+fastapi
+uvicorn
+pydantic
+celery
 
 # Monitoring and Observability
-prometheus-client==0.20.0
-opentelemetry-api==1.22.0
-opentelemetry-sdk==1.22.0
-opentelemetry-instrumentation==0.43b0
+prometheus-client
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-instrumentation
 
 # Development and Testing
-pytest==8.0.2
-pytest-cov==4.0.0
-pytest-asyncio==0.23.5
-black==24.2.0
-ruff==0.2.2
-mypy==1.8.0
-pre-commit==3.6.2
+pytest
+pytest-cov
+pytest-asyncio
+black
+ruff
+mypy
+pre-commit
 
 # Environment and Configuration
-python-dotenv==1.0.1
-pyyaml==6.0.1
-click==8.1.7
-rich==13.7.0
-tqdm==4.66.2
+python-dotenv
+pyyaml
+click
+rich
+tqdm
 
 # Jupyter and Analysis
-jupyter==1.0.0
-matplotlib==3.8.3
-seaborn==0.13.2
-plotly==5.18.0
+jupyter
+matplotlib
+seaborn
+plotly
 
 # Real Estate Specific
-census==0.8.20
-fredapi==0.5.0
+census
+fredapi
